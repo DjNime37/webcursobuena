@@ -1,0 +1,94 @@
+/* ==========================================
+   ESTILOS GENERALES, ESTRUCTURA Y TEXTOS
+   ========================================== */
+body {
+    font: 16px/1.6 Arial, Helvetica, sans-serif;
+    color: #222;
+    background: #f4f6f8;
+    margin: 0;
+}
+
+.content-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+p { font-size: 16px; color: #444; }
+strong { color: #111; }
+
+main a {
+    color: #0066cc;
+    text-decoration: none;
+    transition: .3s;
+}
+
+main a:hover {
+    color: #ff4d00;
+    text-decoration: underline;
+}
+
+/* ==========================================
+   PUBLICIDAD, CARDS Y CARRUSEL
+   ========================================== */
+.promo-banner {
+    background: #fff3cd;
+    border: 1px solid #ffeeba;
+    border-radius: 8px;
+    padding: 12px 20px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 14px;
+}
+
+.promo-banner p { margin: 0; }
+.card-img-top { height: 220px; object-fit: cover; }
+
+#carouselExampleIndicators {
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+#carouselExampleIndicators .carousel-item img {
+    height: 300px;
+    object-fit: cover;
+}
+
+/* ==========================================
+   FOOTER, FORMULARIOS Y ESTADOS
+   ========================================== */
+footer .form-control {
+    background: #f1f1f1;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+}
+
+footer textarea.form-control { resize: vertical; }
+
+footer .text-secondary { transition: color .3s; }
+
+footer a.text-secondary:hover {
+    color: #fff !important;
+    text-decoration: underline !important;
+}
+
+footer :disabled {
+    background: #ececec !important;
+    color: #999 !important;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* ==========================================
+   RESPONSIVIDAD (MÓVILES)
+   ========================================== */
+@media (max-width: 768px) {
+    .promo-banner {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}

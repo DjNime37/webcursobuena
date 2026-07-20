@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="description" content="Página de contacto de la tienda de ropa online" />
+    <meta name="author" content="Usuario" />
+
+    <link rel="stylesheet" href="estilos/estilos.css" />
+
+    <title>Contacto - Tienda de ropa online</title>
+
+</head>
+
+<body>
+
+    <!-- CONTENIDO PRINCIPAL CENTRADO -->
+    <main class="content-container">
+
+        <h1>
+            <strong>CONTACTO</strong>
+        </h1>
+
+        <form action="/procesar" method="post">
+
+            <p>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </p>
+
+            <p>
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos" name="apellidos" required>
+            </p>
+
+            <p>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </p>
+
+            <p>
+                <label for="telefono">Teléfono:</label>
+                <input type="text" id="telefono" name="telefono" disabled>
+            </p>
+
+            <p>
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" placeholder="Deja tu mensaje..." disabled></textarea>
+            </p>
+
+            <p>
+                <button type="submit" disabled>
+                    Enviar mensaje
+                </button>
+            </p>
+
+        </form>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            <a href="index.html">
+                Volver a la tienda
+            </a>
+        </p>
+
+    </footer>
+
+    <!-- SCRIPT AL FINAL -->
+    <script src="main.js"></script>
+
+</body>
+
+</html>
