@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f4f4;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .login{
+            background:#fff;
+            padding:25px;
+            border-radius:8px;
+            box-shadow:0 0 10px rgba(0,0,0,.15);
+            width:320px;
+        }
+
+        h2{
+            text-align:center;
+            margin-bottom:20px;
+        }
+
+        input{
+            width:100%;
+            padding:10px;
+            margin-bottom:15px;
+            box-sizing:border-box;
+        }
+
+        button{
+            width:100%;
+            padding:10px;
+            cursor:pointer;
+        }
+
+        #mensaje{
+            margin-top:15px;
+            text-align:center;
+            font-weight:bold;
+        }
+
+        .ok{
+            color:green;
+        }
+
+        .error{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login">
+    <h2>Iniciar sesión</h2>
+
+    <form id="loginForm">
+        <input
+            type="text"
+            name="usuario"
+            id="usuario"
+            placeholder="Usuario"
+            required
+        >
+
+        <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Contraseña"
+            minlength="8"
+            required
+        >
+
+        <button type="submit">Entrar</button>
+    </form>
+
+    <div id="mensaje"></div>
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", async function(e){
+
+    e.preventDefault();
+
+    const mensaje = document.getElementById("mensaje");
+    mensaje.textContent = "";
+    mensaje.className = "";
+
+    const datos = new FormData(this);
+
+    try{
+
+        const respuesta = await fetch("login.php", {
+            method: "POST",
+            body: datos
+        });
+
+        const json = await respuesta.json();
+
+        mensaje.textContent = json.message;
+        mensaje.className = json.status;
+
+        if(json.status === "success"){
+            // Redirigir tras iniciar sesión
+            // window.location.href = "panel.html";
+        }
+
+    }catch(error){
+
+        mensaje.textContent = "Error al conectar con el servidor.";
+        mensaje.className = "error";
+
+    }
+
+});
+</script>
+
+</body>
+</html>
